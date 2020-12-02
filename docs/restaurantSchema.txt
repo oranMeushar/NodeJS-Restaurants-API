@@ -1,0 +1,42 @@
+db.createCollection('restaurant', {
+    validator:{
+        $jsonSchema:{
+            bsonType:'object',
+            required:['address', 'borough', 'cuisine', 'grades', 'name', 'restaurantId', 'createdAt'],
+            properties:{
+                address:{
+                    bsonType:'object',
+                    description:'Required and must be object'
+                },
+                borough:{
+                    bsonType:'string',
+                    description:'Required and must be string'
+                },
+                cuisine:{
+                    bsonType:'string',
+                    description:'Required and must be string'
+                },
+                grades:{
+                    bsonType:'array',
+                    description:'Required and must be array',
+                    items:{
+                        bsonType:'object', 
+                        required:['grade', 'score']
+                    }
+                },
+                name:{
+                    bsonType:'string',
+                    description:'Required and must be string'
+                },
+                restaurantId:{
+                    bsonType:'string',
+                    description:'Required and must be string'
+                },
+                createdAt:{
+                    bsonType:'string',
+                    description:'Required and must be date'
+                }
+            }
+        }
+    }
+})
